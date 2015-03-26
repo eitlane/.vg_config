@@ -430,4 +430,3 @@ execute pathogen#infect()
  endfunction
 "E N D  B I N D  T O  H E X
 "
-
