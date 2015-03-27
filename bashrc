@@ -116,4 +116,4 @@ fi
 
 # custom alias
 alias ne='emacs -nw'
-alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep'
+alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
