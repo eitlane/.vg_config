@@ -1,0 +1,33 @@
+# status line
+hardstatus alwayslastline
+hardstatus string '[screen number: %n, name: %t, host: [%H]'
+# use Ctrl-b instead of Ctrl-a (conflict with gnu readline)
+escape ^Bb
+# to have the screen redrawn after quiting vim
+altscreen on
+# no startup message
+startup_message off
+# the scrollback history of the terminal output
+defscrollback 999999
+
+# screen <command> : start a new session and exceute the comman
+# screen -S <name> : start a new session and name it <name>
+# screen -t <name> : start a new session and name the window <name>
+# screen -ls : list all the windows
+# screen -r : attach to the detached session
+# Ctrl-b-c : create a new window
+# Ctrl-b-k : kill the current window
+# Ctrl-b-n : switch to the next window
+# Ctrl-b-p : switch to the previos window
+# Ctrl-b-<num> : switch the window number <num>
+# Ctrl-b Ctrl-b : switch to the next window
+# Ctrl-b-w : show all the windows
+# Ctrl-b-A : rename the current window
+# Ctrl-b-d : detach the current window
+# Ctrl-b-x : lock the current window
+# Ctrl-b-z - suspend the current window
+# Ctrl-b-S : split the screen vertically
+# Ctrl-b-X : remove the current region
+# Ctrl-b-Tab : switch to the next region
+# Ctrl-b-? : disply the help message
+# Ctrl-b Ctrl-\ : close all the windows and quit screen
