@@ -305,12 +305,12 @@ endfunction
 nnoremap <F2> :bp<CR>
 nnoremap <F3> :bn<CR>
 
-nnoremap <F4> :cs find 0 <C-R><C-W><CR>
-nnoremap <F5> :VimFilerExplorer -toggle -buffer-name=Explorer -winwidth=40<CR>
+"nnoremap <F4> :cs find 0 <C-R><C-W><CR>
+noremap <F5> :NERDTree<CR>
 nnoremap <F6> :TagbarToggle<CR>
-nnoremap <F7> :call <SID>PrettyXml()<CR>
-nnoremap <F8> :%!python -m json.tool<CR>:w<CR>
-nnoremap <F9> :call <SID>EdiToAscii()<CR>
+"nnoremap <F7> :call <SID>PrettyXml()<CR>
+"nnoremap <F8> :%!python -m json.tool<CR>:w<CR>
+"nnoremap <F9> :call <SID>EdiToAscii()<CR>
 
 " Up and Down arrows mapping
 nnoremap <Up> gk
