@@ -36,7 +36,7 @@ set showmatch
 set showcmd
 
 " blink when the bottom/top of any file is reached
-set visualbell
+" set visualbell
 
 " to display characters which cannot be fit into 1 byte
 set encoding=utf-8
@@ -75,13 +75,13 @@ set nowrap
 set nobackup
 
 " set the tag file produced by ctags (;/ - to search up in the directory hierarchy in case it's not found)
-set tags=~/hg/si/br_5-1/tags
+set tags=~/develop/br_5-1
 
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
 set timeoutlen=0
 
 " set central directory for swap files
-set directory=~alebedev/.vimswp/
+set directory=~/.vimswp/
 
 " ???
 " set ruler
@@ -153,8 +153,8 @@ iab inerface interface
 " map tab switch shortcuts in normal mode (nmap)
 nmap <F2> :tabnext<CR>
 nmap <F1> :tabprevious<CR>
-nmap <F5> :NERDTreeToggle<CR>
-nmap <F6> :TagbarToggle<CR>
+nmap <F6> :NERDTreeToggle<CR>
+nmap <F7> :TagbarToggle<CR>
 nmap <s-tab> :tabnext<CR>
 nmap <c-h> :set invhlsearch<CR>
 nmap <c-n> :set invnumber<CR>
