@@ -160,7 +160,7 @@ nmap <c-h> :set invhlsearch<CR>
 nmap <c-n> :set invnumber<CR>
 "nmap <c-p> :set invspell<CR>
 nmap <c-l> :set invlist<CR>
-nmap <c-w> :set invwrap<CR>
+"nmap <c-w> :set invwrap<CR>
 "nmap <c-s-m> :set mouse=a<CR>
 "nmap <c-s-n> :set mouse-=a<CR>
 " map tab switch shortcuts in insert mode (imap)
