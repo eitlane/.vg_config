@@ -1,11 +1,3 @@
-DoxygenToolkit.vim/
-syntastic/  
-tagbar/ 
-unite.vim/  
-vim-bbye/
-vim-characterize/
-vim-commentary/ 
-vim-markdown/  
-vim-surround/
-vimfiler.vim/ 
-vimproc.vim/
+DoxygenToolkit.vim
+syntastic
+vimfiler.vim
