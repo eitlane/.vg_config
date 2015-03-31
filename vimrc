@@ -155,18 +155,18 @@ nmap <F2> :tabnext<CR>
 nmap <F1> :tabprevious<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
-nmap <s-tab> :tabnext<CR>
-nmap <c-h> :set invhlsearch<CR>
-nmap <c-n> :set invnumber<CR>
+"nmap <s-tab> :tabnext<CR>
+"nmap <c-h> :set invhlsearch<CR>
+"nmap <c-n> :set invnumber<CR>
 "nmap <c-p> :set invspell<CR>
-nmap <c-l> :set invlist<CR>
-nmap <c-w> :set invwrap<CR>
+"nmap <c-l> :set invlist<CR>
+"nmap <c-w> :set invwrap<CR>
 "nmap <c-s-m> :set mouse=a<CR>
 "nmap <c-s-n> :set mouse-=a<CR>
 " map tab switch shortcuts in insert mode (imap)
-imap <F2> <ESC>:tabnext<CR>i
-imap <F1> <ESC>:tabprevious<CR>i
-imap <s-tab> <ESC>:tabnext<CR>i
+"imap <F2> <ESC>:tabnext<CR>i
+"imap <F1> <ESC>:tabprevious<CR>i
+"imap <s-tab> <ESC>:tabnext<CR>i
 "imap <c-s-m> <ESC>:set mouse=a<CR>i
 "imap <c-s-n> <ESC>:set mouse-=a<CR>i
 
@@ -230,5 +230,5 @@ highlight CursorLine ctermbg=blue
 " Pathogen
 execute pathogen#infect()
 
-" CTRLP
+" CTRLPi configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
