@@ -1,5 +1,11 @@
-" enable syntax highlight (syntax off)
-syntax on
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Theme/Colors
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax on                  " enable syntax highlight (syntax off)
+set background=dark        " looks good with the syntax enabled
+"colorscheme elflord        " default coloration theme
+"colorscheme torte
+
 
 " enable line numeration (set nonumber)
 set number
@@ -47,9 +53,6 @@ set tabpagemax=30
 " show top tab line: 2 - always, 1 - only if multiple tabs
 set showtabline=2
 
-" looks good with the syntax enabled
-set background=dark
-
 " history of typed entries
 set history=300
 
@@ -80,11 +83,15 @@ set tags=~/develop/br_5-1
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
 set timeoutlen=0
 
-" set central directory for swap files
-set directory=~/.vimswp/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Files/Backups
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set backup " make backup file
+set backupdir=~/.vimswp/backup/ " where to put backup file
+set directory=~/.vimswp/temp " directory is the directory for temp file
 
-" ???
-" set ruler
+
+set ruler
 
 highlight User2 ctermfg=green ctermbg=black
 " status line
