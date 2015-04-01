@@ -162,11 +162,11 @@ nmap <F2> :tabnext<CR>
 nmap <F1> :tabprevious<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
-"nmap <s-tab> :tabnext<CR>
-"nmap <c-h> :set invhlsearch<CR>
-"nmap <c-n> :set invnumber<CR>
-"nmap <c-p> :set invspell<CR>
-"nmap <c-l> :set invlist<CR>
+nmap <s-tab> :tabnext<CR>
+nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
+nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
+nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
+nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
 "nmap <c-w> :set invwrap<CR>
 "nmap <c-s-m> :set mouse=a<CR>
 "nmap <c-s-n> :set mouse-=a<CR>
@@ -201,7 +201,7 @@ highlight CursorLine ctermbg=blue
 " :tablast - move to the last tab
 " :tabm[ove] <number> - move to the tab <number> (starts from 0)
 " :tabdo <command> - do a command on all the tabs
-" \c - case insensitive search (at the end of the search pattern)
+" \c - case insensitiv search (at the end of the search pattern)
 " \C - case sensitive search (at the end of the search pattern)
 " :version - version of the vim
 " :intro - show the intro
