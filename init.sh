@@ -5,7 +5,7 @@ ln -s  ~/.vg_config/bashrc ~/.bashrc
 ln -s  ~/.vg_config/vim    ~/.vim
 ln -s  ~/.vg_config/vimrc  ~/.vimrc
 ln -s  ~/.vg_config/toprc  ~/.toprc
-ln -s  ~/.vg_config/screen  ~/.screen
+ln -s  ~/.vg_config/screenrc  ~/.screenrc
 
 
 echo "Done!"
