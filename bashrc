@@ -114,6 +114,14 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Source __git_ps1 envornmet variable
+if [ -f ~/.bash_git ]; then
+    . ~/.bash_git
+fi
+
 # custom alias
 alias ne='emacs -nw'
 alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
+alias ll='ls -la'
+
+[[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
