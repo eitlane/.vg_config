@@ -1,6 +1,6 @@
 echo "Spawining vim bash and top configuration"
 
-mkdir .old_config
+mkdir ~/.old_config
 
 mv ~/.vim       /.old_config/.vim
 mv ~/.bashrc    /.old_config/.bashrc
