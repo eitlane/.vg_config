@@ -5,10 +5,17 @@ syntax on                  " enable syntax highlight (syntax off)
 set background=dark        " looks good with the syntax enabled
 "colorscheme elflord        " default coloration theme
 "colorscheme torte
-
+" highlight the status bar when in insert mode
+if version >= 700
+  au InsertEnter * hi StatusLine ctermbg=0 ctermfg=red
+  au InsertLeave * hi StatusLine ctermbg=black ctermfg=white
+endif
 
 " enable line numeration (set nonumber)
 set number
+
+" enable shift insert from system clipboar
+" set clipboard=unamed
 
 " enable the case insensitive search (set ic/set noic)
 set ignorecase
