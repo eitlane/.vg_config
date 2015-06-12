@@ -161,7 +161,8 @@ nmap <F3> :bp<CR>
 nmap <F4> :bn<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
-nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
+nmap <c-h> :noh<CR>  " <CTRL -h> Invalidete the search
+"nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
 nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
 nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
 nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
