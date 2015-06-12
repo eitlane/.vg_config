@@ -222,18 +222,15 @@ highlight CursorLine ctermbg=blue
 " "ayy - copy whole line into register 'a'
 " "ap - paste from register 'a'
 
+" insert and commandline modes too.
+map  <C-A> <Home>
+map  <C-E> <End>
+map! <C-A> <Home>
+map! <C-E> <End>
+
 " P L U G I N   C O N F I G U R A T I O N
 " Pathogen
 execute pathogen#infect()
 
 " CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-
-
-" map Ctrl-A and Ctrl-E in *all* modes. map! makes the mapping work in
-" insert and commandline modes too.
-map  <C-A> <Home>
-map  <C-E> <End>
-map! <C-A> <Home>
-map! <C-E> <End>
