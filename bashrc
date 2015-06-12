@@ -123,5 +123,6 @@ fi
 alias ne='emacs -nw'
 alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
 alias ll='ls -la'
+alias vim='vim -p'
 
 [[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
