@@ -155,8 +155,10 @@ iab inerface interface
 " <c-> 	- keystroke CTRL+
 " <LeftMouse> <RightMouse> <MiddleMouse> <LeftRelease> <RightRelease> <MiddleRelease>
 " map tab switch shortcuts in normal mode (nmap)
-nmap <F2> :tabnext<CR>
 nmap <F1> :tabprevious<CR>
+nmap <F2> :tabnext<CR>
+nmap <F3> :bp<CR>
+nmap <F4> :bn<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
 nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
