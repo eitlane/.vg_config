@@ -228,3 +228,12 @@ execute pathogen#infect()
 
 " CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+
+
+" map Ctrl-A and Ctrl-E in *all* modes. map! makes the mapping work in
+" insert and commandline modes too.
+map  <C-A> <Home>
+map  <C-E> <End>
+map! <C-A> <Home>
+map! <C-E> <End>
