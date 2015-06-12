@@ -81,9 +81,6 @@ set shiftround
 " don't spread long lines among multiple lines but scroll the screen instead
 set nowrap
 
-" no backup files (~<filename>)
-set nobackup
-
 " set the tag file produced by ctags (;/ - to search up in the directory hierarchy in case it's not found)
 set tags=~/develop/br_5-1
 
@@ -96,7 +93,6 @@ set timeoutlen=0
 set backup " make backup file
 set backupdir=~/.vimswp/backup/ " where to put backup file
 set directory=~/.vimswp/temp " directory is the directory for temp file
-
 
 set ruler
 
@@ -123,9 +119,6 @@ set laststatus=2
 
 " toggle paste option on/off (if on - pasting is made with indents)
 set pastetoggle=<F12>
-
-" inverting the case easily, ~w will invert the word without selecting
-set tildeop
 
 " asks for confirmation (save or not), asks only once, so, not that annoying
 " set confirm
@@ -169,20 +162,10 @@ nmap <F2> :tabnext<CR>
 nmap <F1> :tabprevious<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
-nmap <s-tab> :tabnext<CR>
 nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
 nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
 nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
 nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
-"nmap <c-w> :set invwrap<CR>
-"nmap <c-s-m> :set mouse=a<CR>
-"nmap <c-s-n> :set mouse-=a<CR>
-" map tab switch shortcuts in insert mode (imap)
-"imap <F2> <ESC>:tabnext<CR>i
-"imap <F1> <ESC>:tabprevious<CR>i
-"imap <s-tab> <ESC>:tabnext<CR>i
-"imap <c-s-m> <ESC>:set mouse=a<CR>i
-"imap <c-s-n> <ESC>:set mouse-=a<CR>i
 
 " highligh command: hi[ghlight] <group> <options>
 " options: ctermbg - backgroud, ctermfg - foregrouond (text), cterm = [bold|italic|underline|reverse]
