@@ -117,9 +117,6 @@ set laststatus=2
 " disable autoindent when copying from the clipboard (middle click), set nopaste to revert the change (cannot be enable by default because disables autoindent)
 " set paste
 
-" toggle paste option on/off (if on - pasting is made with indents)
-set pastetoggle=<F12>
-
 " asks for confirmation (save or not), asks only once, so, not that annoying
 " set confirm
 
@@ -166,6 +163,9 @@ nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
 nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
 nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
 nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
+
+" toggle paste option on/off (if on - pasting is made with indents)
+set pastetoggle=<F12>
 
 " highligh command: hi[ghlight] <group> <options>
 " options: ctermbg - backgroud, ctermfg - foregrouond (text), cterm = [bold|italic|underline|reverse]
@@ -222,10 +222,9 @@ highlight CursorLine ctermbg=blue
 " "ayy - copy whole line into register 'a'
 " "ap - paste from register 'a'
 
-
 " P L U G I N   C O N F I G U R A T I O N
 " Pathogen
 execute pathogen#infect()
 
-" CTRLPi configuration
+" CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
