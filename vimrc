@@ -286,3 +286,5 @@ execute pathogen#infect()
 
 " CtrlP configuration
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+nmap <c-b> :CtrlPBuffer <CR>
