@@ -114,9 +114,6 @@ set statusline=[tab=%n]\ %2*%F%*\ [lines=%L]\ [type=%Y]\ %r\ [%l,%c:%p%%]\ [asci
 " always display the status line
 set laststatus=2
 
-" disable autoindent when copying from the clipboard (middle click), set nopaste to revert the change (cannot be enable by default because disables autoindent)
-" set paste
-
 " asks for confirmation (save or not), asks only once, so, not that annoying
 " set confirm
 
@@ -140,21 +137,6 @@ iab inerface interface
 " ':' or '/' and Ctrl+f - history
 " Ctrl+c+c exit history
 
-" force the specific file type
-" C++ : cpp
-" SQL : sql
-" SHELL : sh
-" setf <language>
-
-" source config file
-" source <config>
-
-" <CR> 	- keystroke ENTER
-" <ESC> - keystroke ESC
-" <s-> 	- keystroke SHIFT+
-" <c-> 	- keystroke CTRL+
-" <LeftMouse> <RightMouse> <MiddleMouse> <LeftRelease> <RightRelease> <MiddleRelease>
-" map tab switch shortcuts in normal mode (nmap)
 nmap <F1> :tabprevious<CR>
 nmap <F2> :tabnext<CR>
 nmap <F3> :bp<CR>
@@ -169,6 +151,22 @@ nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
 
 " toggle paste option on/off (if on - pasting is made with indents)
 set pastetoggle=<F12>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      Setting up wrap/unwrap to <c-w>
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set linebreak "controls whether wrapped text is broken at word boundaries or not.
+
+function ToggleWrap()
+ if (&wrap == 1)
+   set nowrap
+ else
+   set wrap
+ endif
+endfunction
+
+map <c-w> :call ToggleWrap()<CR>
+map! <c-w> ^[:call ToggleWrap()<CR>
 
 " highligh command: hi[ghlight] <group> <options>
 " options: ctermbg - backgroud, ctermfg - foregrouond (text), cterm = [bold|italic|underline|reverse]
@@ -187,43 +185,6 @@ match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
 highlight clear CursorLine
 highlight CursorLine ctermbg=blue
 
-" :tabnew <> - open a file in a new tab
-" :tabn[ext] - move to next tab
-" :tabp[revious] - move to previous tab
-" :tabfirst - move to the first tab
-" :tablast - move to the last tab
-" :tabm[ove] <number> - move to the tab <number> (starts from 0)
-" :tabdo <command> - do a command on all the tabs
-" \c - case insensitiv search (at the end of the search pattern)
-" \C - case sensitive search (at the end of the search pattern)
-" :version - version of the vim
-" :intro - show the intro
-" :changes - ???
-" Ctrl+a - increment a number under the cursor
-" Ctrl+x - decrement a number under the cursor
-" Ctrl+g - show the file name + number of lines in it
-" ^ - to the first non blank character
-" g_ - to the last non blank character
-" :ls - see all the buffers (%a - active, # - the next buffer, h - hidden buffer, it has unsaved changes)
-" Ctrl+^ - to switch between the active and the next buffers
-" :bn - next buffer
-" :bp - buffer previous
-" :bn! - skip the warning about unsaved changes, creates a hidden buffer
-" :b<num> - go to the buffer <num>
-" Ctrl+] - go to the tag
-" Ctrl+w+] - open a tag in a new window (horizontal split)
-" Ctrl+t - go back in the tag stack
-" :tags - see the tag stack
-" :ts[elect] <tag> - see all the tags with the given name
-" %s/0/\r/g - replace all 0 with the new line character
-" Ctrl+r + Ctrl+w - paste yanked text into command line
-" z= - suggest correctly spelled words for the word under the cursor
-" zg - add the word under the cursor to the spellfile
-" ]s - go to next misspelled word
-" [s - go to previous misspelled word
-" :reg - see past registers
-" "ayy - copy whole line into register 'a'
-" "ap - paste from register 'a'
 
 " insert and commandline modes too.
 map  <C-A> <Home>
@@ -289,3 +250,45 @@ execute pathogen#infect()
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 nmap <c-b> :CtrlPBuffer <CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                      Notes/Help/Useful shortcats
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" :tabnew <> - open a file in a new tab
+" :tabn[ext] - move to next tab
+" :tabp[revious] - move to previous tab
+" :tabfirst - move to the first tab
+" :tablast - move to the last tab
+" :tabm[ove] <number> - move to the tab <number> (starts from 0)
+" :tabdo <command> - do a command on all the tabs
+" \c - case insensitiv search (at the end of the search pattern)
+" \C - case sensitive search (at the end of the search pattern)
+" :version - version of the vim
+" :intro - show the intro
+" :changes - ???
+" Ctrl+a - increment a number under the cursor
+" Ctrl+x - decrement a number under the cursor
+" Ctrl+g - show the file name + number of lines in it
+" ^ - to the first non blank character
+" g_ - to the last non blank character
+" :ls - see all the buffers (%a - active, # - the next buffer, h - hidden buffer, it has unsaved changes)
+" Ctrl+^ - to switch between the active and the next buffers
+" :bn - next buffer
+" :bp - buffer previous
+" :bn! - skip the warning about unsaved changes, creates a hidden buffer
+" :b<num> - go to the buffer <num>
+" Ctrl+] - go to the tag
+" Ctrl+w+] - open a tag in a new window (horizontal split)
+" Ctrl+t - go back in the tag stack
+" :tags - see the tag stack
+" :ts[elect] <tag> - see all the tags with the given name
+" %s/0/\r/g - replace all 0 with the new line character
+" Ctrl+r + Ctrl+w - paste yanked text into command line
+" z= - suggest correctly spelled words for the word under the cursor
+" zg - add the word under the cursor to the spellfile
+" ]s - go to next misspelled word
+" [s - go to previous misspelled word
+" :reg - see past registers
+" "ayy - copy whole line into register 'a'
+" "ap - paste from register 'a'
