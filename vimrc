@@ -228,6 +228,56 @@ map  <C-E> <End>
 map! <C-A> <Home>
 map! <C-E> <End>
 
+" Comment functions
+function! PoundComment()
+  map - 0i# <ESC>j
+  map _ :s/^\s*# \=//g<CR>j
+  set comments=:#
+endfunction
+
+function! HTMLComment()
+  map - $a --><ESC>0i<!-- <ESC><CR>
+  map _ :s/^\s*<!-- \=//g<CR>:s/ \=-->[ \t]*$//g<CR>j
+  set tw=0 formatoptions=tcq
+endfunction
+
+function! CComment()
+  map - $a */<ESC>0i/* <ESC><CR>
+  map _ :s/^\s*\/\* \=//g<CR>:s/ \=\*\/[ \t]*$//g<CR>j
+  set nocindent comments=sr:/*,mb:*,ex:*/,://
+"     set nocindent comments=:/*,://
+endfunction
+
+function! CPlusPlusComment()
+  map - 0i// <ESC>j
+  map _ :s/^\s*\/\/ \=//g<CR>j
+  set nocindent comments=:\/\/
+endfunction
+
+function! VimComment()
+  map - 0i" <ESC>j
+  map _ :s/^\s*" \=//g<CR>j
+  set comments=:\"
+endfunction
+
+autocmd Filetype html               call HTMLComment()
+autocmd Filetype c                  call CComment()
+autocmd Filetype synopsys           call CComment()
+autocmd Filetype cpp                call CPlusPlusComment()
+autocmd Filetype java               call CPlusPlusComment()
+autocmd Filetype vim                call VimComment()
+autocmd Filetype perl               call PoundComment()
+autocmd Filetype apache             call PoundComment()
+autocmd Filetype csh                call PoundComment()
+autocmd Filetype sh                 call PoundComment()
+autocmd Filetype cdslib             call PoundComment()
+autocmd Filetype tcl                call PoundComment()
+autocmd Filetype xs                 call PoundComment()
+autocmd Filetype make               call PoundComment()
+autocmd Filetype conf               call PoundComment()
+autocmd Filetype fvwm               call PoundComment()
+autocmd Filetype samba              call PoundComment()
+
 " P L U G I N   C O N F I G U R A T I O N
 " Pathogen
 execute pathogen#infect()
