@@ -94,7 +94,12 @@ set backup " make backup file
 set backupdir=~/.vimswp/backup/ " where to put backup file
 set directory=~/.vimswp/temp " directory is the directory for temp file
 
-set ruler
+if version >= 730
+    set undofile                " Save undo's after file closes
+    set undodir=~/.vimswp/undo  " where to save undo histories
+    set undolevels=1000         " How many undos
+    set undoreload=10000        " number of lines to save for undo
+endif
 
 highlight User2 ctermfg=green ctermbg=black
 " status line
@@ -113,6 +118,9 @@ set statusline=[tab=%n]\ %2*%F%*\ [lines=%L]\ [type=%Y]\ %r\ [%l,%c:%p%%]\ [asci
 
 " always display the status line
 set laststatus=2
+
+" Displays the line number, the column number, the virtual column number, and the relative position of the cursor in the file
+set ruler
 
 " asks for confirmation (save or not), asks only once, so, not that annoying
 " set confirm
