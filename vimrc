@@ -137,25 +137,24 @@ iab inerface interface
 " ':' or '/' and Ctrl+f - history
 " Ctrl+c+c exit history
 
+" Functional Keys Map
 nmap <F1> :tabprevious<CR>
 nmap <F2> :tabnext<CR>
 nmap <F3> :bp<CR>
 nmap <F4> :bn<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
+set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with indents)
+
+" Key Compinations Map
 nmap <c-h> :noh<CR>  " <CTRL -h> Invalidete the search
-"nmap <c-h> :set invhlsearch<CR>  " <CTRL -h> Invalidete the search
 nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
 nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
 nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
 
-" toggle paste option on/off (if on - pasting is made with indents)
-set pastetoggle=<F12>
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      Setting up wrap/unwrap to <c-w>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 function ToggleWrap()
  if (&wrap == 1)
@@ -165,8 +164,8 @@ function ToggleWrap()
  endif
 endfunction
 
-map <c-w> :call ToggleWrap()<CR>
-map! <c-w> ^[:call ToggleWrap()<CR>
+nmap <c-w> :call ToggleWrap()<CR>
+set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 " highligh command: hi[ghlight] <group> <options>
 " options: ctermbg - backgroud, ctermfg - foregrouond (text), cterm = [bold|italic|underline|reverse]
@@ -184,7 +183,6 @@ match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
 " hightlight the current line
 highlight clear CursorLine
 highlight CursorLine ctermbg=blue
-
 
 " insert and commandline modes too.
 map  <C-A> <Home>
