@@ -14,6 +14,9 @@ endif
 " enable line numeration (set nonumber)
 set number
 
+" keep 10 lines (top/bottom) for scope
+set so=10
+
 " enable shift insert from system clipboar
 " set clipboard=unamed
 
@@ -74,6 +77,9 @@ set shiftwidth=4
 
 " this makes the backspace key treat the 4 spaces like a tab
 set softtabstop=4
+
+" fix potential backspace problems
+set backspace=2
 
 " this make '>' and '<' commands to round the shift spaces to the closest shiftwidth
 set shiftround
@@ -172,7 +178,7 @@ function ToggleWrap()
  endif
 endfunction
 
-nmap <c-w> :call ToggleWrap()<CR>
+nmap <f9> :call ToggleWrap()<CR>
 set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 " highligh command: hi[ghlight] <group> <options>
