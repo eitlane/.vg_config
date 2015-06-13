@@ -1,3 +1,7 @@
+
+"INTEGRATE SPELL CHECK!!!!
+
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -89,6 +93,9 @@ set nowrap
 
 " set the tag file produced by ctags (;/ - to search up in the directory hierarchy in case it's not found)
 set tags=~/develop/br_5-1
+
+" add tags from the current folder
+set tags+=tags;
 
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
 set timeoutlen=0
