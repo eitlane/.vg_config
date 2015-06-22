@@ -2,18 +2,18 @@
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on                  " enable syntax highlight (syntax off)
-set background=dark        " looks good with the syntax enabled
-"colorscheme elflord        " default coloration theme
+" set background=dark        " looks good with the syntax enabled
+colorscheme elflord        " default coloration theme
 "colorscheme torte
 " highlight the status bar when in insert mode
 if version >= 700
   au InsertEnter * hi StatusLine ctermbg=0 ctermfg=red
-  au InsertLeave * hi StatusLine ctermbg=black ctermfg=white
+  au InsertLeave * hi StatusLine ctermbg=black ctermfg=grey
 endif
 
 " hightlight the current line
 highlight clear CursorLine
-highlight CursorLine cterm=underline " ctermbg=blue ctermfg=white
+highlight CursorLine cterm=underline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Visual
@@ -238,7 +238,6 @@ function! CComment()
   map - $a */<ESC>0i/* <ESC><CR>
   map _ :s/^\s*\/\* \=//g<CR>:s/ \=\*\/[ \t]*$//g<CR>j
   set nocindent comments=sr:/*,mb:*,ex:*/,://
-"     set nocindent comments=:/*,://
 endfunction
 
 function! CPlusPlusComment()
