@@ -1,7 +1,3 @@
-
-"INTEGRATE SPELL CHECK!!!!
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Theme/Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -15,14 +11,24 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=black ctermfg=white
 endif
 
+" hightlight the current line
+highlight clear CursorLine
+highlight CursorLine cterm=underline " ctermbg=blue ctermfg=white
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visual
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " enable line numeration (set nonumber)
 set number
 
 " keep 10 lines (top/bottom) for scope
 set so=10
 
-" enable shift insert from system clipboar
-" set clipboard=unamed
+" highlight current line (set nocursorline)
+set cursorline
+
+" highlight all search matches (set hls)
+set hlsearch
 
 " enable the case insensitive search (set ic/set noic)
 set ignorecase
@@ -36,12 +42,6 @@ set incsearch
 " search case sensitive if any upper case character appeared in the search string
 set smartcase
 
-" highlight current line (set nocursorline)
-set cursorline
-
-" highlight all search matches (set hls)
-set hlsearch
-
 " avoid copy buffer size limitation (50 lines)
 " reject vi compatibility
 set nocompatible
@@ -54,9 +54,6 @@ set showmatch
 
 " show commands made in the command mode (helpful for the selection)
 set showcmd
-
-" blink when the bottom/top of any file is reached
-" set visualbell
 
 " to display characters which cannot be fit into 1 byte
 set encoding=utf-8
@@ -95,7 +92,7 @@ set nowrap
 set tags=~/develop/br_5-1
 
 " add tags from the current folder
-set tags+=tags;
+set tags+=tags;/
 
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
 set timeoutlen=0
@@ -168,24 +165,47 @@ nmap <F7> :TagbarToggle<CR>
 set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with indents)
 
 " Key Compinations Map
-nmap <c-h> :noh<CR>  " <CTRL -h> Invalidete the search
-nmap <c-n> :set invnumber<CR>    " <CTRL -h> emove numbers
-nmap <c-p> :set invspell<CR>     " <CTRL -h> nable spelling
-nmap <c-l> :set invlist<CR>      " <CTRL -h>  at the end of the line
+nmap <C-h> :noh<CR>              " <CTRL -h> Invalidete the search
+nmap <C-n> :set invnumber<CR>    " <CTRL -n> remove numbers
+nmap <C-s> :set invspell<CR>     " <CTRL -s> enable spelling
+nmap <C-l> :set invlist<CR>      " <CTRL -l> $ at the end of the line
+
+" insert and commandline modes too.
+map  <C-A> <Home>
+map  <C-E> <End>
+map! <C-A> <Home>
+map! <C-E> <End>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle option 'spell'
+""""""""""""""""""""""""""""""""""""""""""""""""""
+function! ToggleSpell()
+  if &spell
+    set nospell
+    echo "Correction deactivated!"
+  else
+    set spell
+    echo "Correction activated!"
+  end
+endfunction
+
+nmap <F10> :call ToggleSpell()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                      Setting up wrap/unwrap to <c-w>
+"                      Setting up wrap/unwrap to <F9>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function ToggleWrap()
- if (&wrap == 1)
+ if &wrap
    set nowrap
+   echo "Normal Mode!"
  else
    set wrap
+   echo "Wrap Mode!"
  endif
 endfunction
 
-nmap <f9> :call ToggleWrap()<CR>
+nmap <F9> :call ToggleWrap()<CR>
 set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 " highligh command: hi[ghlight] <group> <options>
@@ -200,16 +220,6 @@ set linebreak "controls whether wrapped text is broken at word boundaries or not
 " match none, 2match none, 3match none to remove all the matches
 match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
 2match Todo /\s\+$/
-
-" hightlight the current line
-highlight clear CursorLine
-highlight CursorLine ctermbg=blue
-
-" insert and commandline modes too.
-map  <C-A> <Home>
-map  <C-E> <End>
-map! <C-A> <Home>
-map! <C-E> <End>
 
 " Comment functions
 function! PoundComment()
