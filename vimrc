@@ -111,9 +111,6 @@ if version >= 730
     set undoreload=10000        " number of lines to save for undo
 endif
 
-" Unknow (yet) option
-" highlight User2 ctermfg=green ctermbg=black
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Status Line configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,6 +127,9 @@ endif
 " <num>* - set the hightgroup User<num>
 set statusline=[buffer=%n]\ %2*%F%*\ [lines=%L]\ [type=%Y]\ %r\ [%l,%c:%p%%]\ [ascii=%b\ hex=%B]
 
+" Status line color option
+highlight User2 ctermfg=green ctermbg=black
+
 " always display the status line
 set laststatus=2
 
@@ -137,7 +137,7 @@ set laststatus=2
 set ruler
 
 " asks for confirmation (save or not), asks only once, so, not that annoying
-" set confirm
+set confirm
 
 " make unsaved buffer hidden instead of asking to put !
 set hidden
