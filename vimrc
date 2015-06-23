@@ -174,7 +174,6 @@ set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with
 " Key Compinations Map
 nmap <C-h> :noh<CR>              " <CTRL -h> Invalidete the search
 nmap <C-n> :set invnumber<CR>    " <CTRL -n> remove numbers
-nmap <C-s> :set invspell<CR>     " <CTRL -s> enable spelling
 nmap <C-l> :set invlist<CR>      " <CTRL -l> $ at the end of the line
 
 " insert and commandline modes too.
@@ -203,6 +202,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle Spell function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! ToggleSpell()
   if &spell
     set nospell
