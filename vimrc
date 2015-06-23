@@ -117,18 +117,18 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Status Line configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" f - file name
+" n - buffer number
 " F - full file name
 " L - number of lines
 " Y - file type
-" n - number of the buffer
 " r - [RO] if readonly
-" b - number of the character under the cursor
 " l - line number
 " c - column number
 " p - percentage
+" f - file name
+" b - number of the character under the cursor
 " <num>* - set the hightgroup User<num>
-set statusline=[tab=%n]\ %2*%F%*\ [lines=%L]\ [type=%Y]\ %r\ [%l,%c:%p%%]\ [ascii=%b,%B]
+set statusline=[buffer=%n]\ %2*%F%*\ [lines=%L]\ [type=%Y]\ %r\ [%l,%c:%p%%]\ [ascii=%b\ hex=%B]
 
 " always display the status line
 set laststatus=2
