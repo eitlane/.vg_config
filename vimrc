@@ -111,8 +111,12 @@ if version >= 730
     set undoreload=10000        " number of lines to save for undo
 endif
 
-highlight User2 ctermfg=green ctermbg=black
-" status line
+" Unknow (yet) option
+" highlight User2 ctermfg=green ctermbg=black
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Status Line
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " f - file name
 " F - full file name
 " L - number of lines
@@ -162,6 +166,9 @@ nmap <F3> :bp<CR>
 nmap <F4> :bn<CR>
 nmap <F6> :NERDTreeToggle<CR>
 nmap <F7> :TagbarToggle<CR>
+nmap <F8> :call ToggleHex()<CR>
+nmap <F9> :call ToggleWrap()<CR>
+nmap <F10> :call ToggleSpell()<CR>
 set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with indents)
 
 " Key Compinations Map
@@ -176,9 +183,26 @@ map  <C-E> <End>
 map! <C-A> <Home>
 map! <C-E> <End>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle option 'spell'
-""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let $in_hex=0
+function! ToggleHex()
+  set binary
+  set noeol
+  if $in_hex>0
+    :%!xxd -r
+    let $in_hex=0
+  else
+    :%!xxd
+    let $in_hex=1
+  endif
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle option 'spell'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ToggleSpell()
   if &spell
     set nospell
@@ -188,8 +212,6 @@ function! ToggleSpell()
     echo "Correction activated!"
   end
 endfunction
-
-nmap <F10> :call ToggleSpell()<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                      Setting up wrap/unwrap to <F9>
@@ -205,7 +227,6 @@ function ToggleWrap()
  endif
 endfunction
 
-nmap <F9> :call ToggleWrap()<CR>
 set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 " highligh command: hi[ghlight] <group> <options>
