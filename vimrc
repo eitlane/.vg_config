@@ -145,10 +145,10 @@ set hidden
 " saves automatically unsaved buffers at switch time (hidden looks safer)
 " set autowrite
 
-" abbreviations
-iab teh the
-iab marco macro
-iab inerface interface
+" abbreviations for frequently-used words
+" iab teh the
+" iab marco macro
+" iab inerface interface
 
 " use mouse to scroll, switch between tabs, close tabs, select text (set mouse-=a)
 " set mouse=a
