@@ -142,13 +142,13 @@ set confirm
 " make unsaved buffer hidden instead of asking to put !
 set hidden
 
+" set match for the tracer logs
+" match none, 2match none, 3match none to remove all the matches
+match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
+2match Todo /\s\+$/
+
 " saves automatically unsaved buffers at switch time (hidden looks safer)
 " set autowrite
-
-" abbreviations for frequently-used words
-" iab teh the
-" iab marco macro
-" iab inerface interface
 
 " use mouse to scroll, switch between tabs, close tabs, select text (set mouse-=a)
 " set mouse=a
@@ -236,11 +236,6 @@ set linebreak "controls whether wrapped text is broken at word boundaries or not
 " highlight TrcNotGrp ctermfg=green
 " highlight Comment ctermfg=blue
 " default groups: ErrorMsg
-
-" set match for the tracer logs
-" match none, 2match none, 3match none to remove all the matches
-match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
-2match Todo /\s\+$/
 
 " Comment functions
 function! PoundComment()
@@ -344,3 +339,11 @@ nmap <c-b> :CtrlPBuffer <CR>
 " :reg - see past registers
 " "ayy - copy whole line into register 'a'
 " "ap - paste from register 'a'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Non used configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" abbreviations for frequently-used words
+" iab teh the
+" iab marco macro
+" iab inerface interface
