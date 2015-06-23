@@ -115,7 +115,7 @@ endif
 " highlight User2 ctermfg=green ctermbg=black
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Status Line
+" Status Line configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " f - file name
 " F - full file name
@@ -184,7 +184,7 @@ map! <C-A> <Home>
 map! <C-E> <End>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle option 'spell'
+" Toggle toHEX function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 let $in_hex=0
@@ -201,7 +201,7 @@ function! ToggleHex()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle option 'spell'
+" Toggle Spell function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! ToggleSpell()
   if &spell
@@ -214,7 +214,7 @@ function! ToggleSpell()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                      Setting up wrap/unwrap to <F9>
+" Toggle Wrap / UnWrap funciton
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function ToggleWrap()
@@ -291,7 +291,10 @@ autocmd Filetype conf               call PoundComment()
 autocmd Filetype fvwm               call PoundComment()
 autocmd Filetype samba              call PoundComment()
 
-" P L U G I N   C O N F I G U R A T I O N
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plugin Configuration
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Pathogen
 execute pathogen#infect()
 
@@ -301,7 +304,7 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 nmap <c-b> :CtrlPBuffer <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"                      Notes/Help/Useful shortcats
+" Notes/Help/Useful shortcats
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " :tabnew <> - open a file in a new tab
