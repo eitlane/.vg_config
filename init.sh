@@ -20,6 +20,7 @@ echo "Getting plugins from git"
 /bin/sh  ~/.vg_config/vim/bundle/nerdtree.sh
 /bin/sh  ~/.vg_config/vim/bundle/rename.sh
 /bin/sh  ~/.vg_config/vim/bundle/tagbar.sh
+/bin/sh  ~/.vg_config/vim/bundle/bufftabline.sh
 #/bin/sh  ~/.vg_config/vim/bundle/vim-air.sh
 
 echo "Done!"
