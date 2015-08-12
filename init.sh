@@ -7,10 +7,10 @@ mkdir ~/.vimswap/backup
 mkdir ~/.vimswap/temp
 mkdir ~/.vimswap/undo
 
-mv ~/.vim       /.old_config/.vim
-mv ~/.bashrc    /.old_config/.bashrc
-mv ~/.vimrc     /.old_config/.vimrc
-mv ~/.screenrc  /.old_config/.screenrc
+mv ~/.vim       ~/.old_config/.vim
+mv ~/.bashrc    ~/.old_config/.bashrc
+mv ~/.vimrc     ~/.old_config/.vimrc
+mv ~/.screenrc  ~/.old_config/.screenrc
 
 ln -s  ~/.vg_config/bashrc ~/.bashrc
 ln -s  ~/.vg_config/vim    ~/.vim
