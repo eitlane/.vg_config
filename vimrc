@@ -101,12 +101,12 @@ set timeoutlen=0
 " Files/Backups
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set backup " make backup file
-set backupdir=~/.vimswp/backup/ " where to put backup file
-set directory=~/.vimswp/temp " directory is the directory for temp file
+set backupdir=~/.vimswap/backup/ " where to put backup file
+set directory=~/.vimswap/temp " directory is the directory for temp file
 
 if version >= 730
     set undofile                " Save undo's after file closes
-    set undodir=~/.vimswp/undo  " where to save undo histories
+    set undodir=~/.vimswap/undo  " where to save undo histories
     set undolevels=1000         " How many undos
     set undoreload=10000        " number of lines to save for undo
 endif
