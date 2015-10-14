@@ -125,3 +125,20 @@ alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
 alias ll='ls -la'
 
 [[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
+alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
+alias 2='ssh ncegcolnx273'
+alias 1='ssh ncegcolnx278'
+
+
+function hfind()
+{
+    ack --type=h "$@"
+    #find . -name \*.h |xargs -n1 grep -H --color=auto -n "$@"
+}
+
+function cppfind()
+{
+    ack --type=cpp "$@"
+    #find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
+}
+
