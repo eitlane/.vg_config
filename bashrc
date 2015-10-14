@@ -106,6 +106,7 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
+
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
     . /usr/share/bash-completion/bash_completion
@@ -124,11 +125,43 @@ alias ne='emacs -nw'
 alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
 alias ll='ls -la'
 
-[[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
-alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
-alias 2='ssh ncegcolnx273'
-alias 1='ssh ncegcolnx278'
+alias portst='netstat -lnpat'
+alias portsu='netstat -lnpau'
 
+alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
+alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
+alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
+alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
+
+alias wget='wget -c'
+
+## pass options to free ##
+alias meminfo='free -m -l -t'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+## Get server cpu info ##
+alias cpuinfo='lscpu'
+
+## copy with progress
+alias cpProgress="rsync --progress -ravz"
+alias viewmount="mount |column -t"
+
+## turn screen off
+alias screenoff="xset dpms force off"
+
+## list folder by size
+alias usage="du -h --max-depth=1 | sort -rh"
+
+## Tree no tree
+## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
 function hfind()
 {
@@ -142,3 +175,43 @@ function cppfind()
     #find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
 }
 
+# AMADEUS SPECIFIC
+
+[[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
+alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
+alias 2='ssh ncegcolnx273'
+alias 1='ssh ncegcolnx278'
+
+# EXPERIMENTAL
+# alias connections='sudo lsof -n -P -i +c 15'
+# show directories only
+# alias   dsdd="ls -FlA | grep :*/"
+# show executables only
+# alias   dsdx="ls -FlA | grep \*"
+# show non-executables
+# alias   dsdnx="ls -FlA | grep -v \*"
+# order by date
+# alias   dsdt="ls -FlAtr "
+# alias dlr=”/usr/local/bin/mplayer -nocache -audiofile-cache 64 -prefer-ipv4 $(GET http://www.dradio.de/streaming/dkultur.m3u|head -1)”
+# alias lst='ls -ltr'   # most recently updated files last
+# awk tab delim  (escape '\' awk to disable aliased awk)
+# tawk='\awk -F "\t" '
+# case insensitive grep
+# alias ig="grep --color -i "
+# ls sort by time
+# alias lt="ls -ltr "
+# ls sort by byte size
+# alias lS='ls -Slr'
+# ps by process grep  (ie. psg chrome)
+# alias psg='\ps -ef|grep --color '
+# ps by user
+# alias psu='\ps auxwwf '
+# ps by user with grep (ie. psug budman)
+# alias psug='psu|grep --color '
+# find broken symlinks
+# alias brokenlinks='\find . -xtype l -printf "%p -> %l\n"' 
+
+
+
+# URLS
+# http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
