@@ -57,17 +57,16 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
-    #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-    PS1='\[\e[0;31m\]┌──{\e[0;34m\t\e[0;31m}──{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}──\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]└─$ \[\e[m\]'
+    PS1='\[\e[0;31m\][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]$ \[\e[m\]'
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;\u@\h: \w\a\]$PS1"
     ;;
 *)
     ;;
@@ -85,23 +84,10 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -120,7 +106,12 @@ if [ -f ~/.bash_git ]; then
     . ~/.bash_git
 fi
 
-# custom alias
+## --- Alias Start ---
+
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
 alias ne='emacs -nw'
 alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
 alias ll='ls -la'
@@ -156,12 +147,16 @@ alias viewmount="mount |column -t"
 ## turn screen off
 alias screenoff="xset dpms force off"
 
-## list folder by size
-alias usage="du -h --max-depth=1 | sort -rh"
 
 ## Tree no tree
 ## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 ## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+
+## print the usege on the disk of fisrt agrument
+function usage()
+{
+    du -ha --max-depth=1 $1 | sort -rh
+}
 
 function hfind()
 {
@@ -174,6 +169,8 @@ function cppfind()
     ack --type=cpp "$@"
     #find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
 }
+
+## --- Alias End ---
 
 # AMADEUS SPECIFIC
 
@@ -210,7 +207,6 @@ alias 1='ssh ncegcolnx278'
 # alias psug='psu|grep --color '
 # find broken symlinks
 # alias brokenlinks='\find . -xtype l -printf "%p -> %l\n"' 
-
 
 
 # URLS
