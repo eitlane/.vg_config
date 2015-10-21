@@ -97,6 +97,8 @@ if ! shopt -oq posix; then
 fi
 
 # Source __git_ps1 envornmet variable
+# curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
+
 if [ -f ~/.bash_git ]; then
     . ~/.bash_git
 fi
