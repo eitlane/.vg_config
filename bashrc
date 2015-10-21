@@ -30,11 +30,6 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
-
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -147,7 +142,6 @@ alias viewmount="mount |column -t"
 ## turn screen off
 alias screenoff="xset dpms force off"
 
-
 ## Tree no tree
 ## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 ## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
@@ -206,8 +200,8 @@ alias 1='ssh ncegcolnx278'
 # ps by user with grep (ie. psug budman)
 # alias psug='psu|grep --color '
 # find broken symlinks
-# alias brokenlinks='\find . -xtype l -printf "%p -> %l\n"' 
-
+# alias brokenlinks='\find . -xtype l -printf "%p -> %l\n"'
 
 # URLS
 # http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+
