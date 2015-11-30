@@ -213,3 +213,5 @@ alias 1='ssh ncegcolnx278'
 # URLS
 # http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
+
+PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]$ \[\e[m\]'
