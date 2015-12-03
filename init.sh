@@ -1,4 +1,4 @@
-echo "Spawining vim bash and top configuration"
+echo "Spawining vg configuration"
 
 mkdir ~/.old_config
 
