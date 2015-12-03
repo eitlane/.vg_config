@@ -154,6 +154,10 @@ alias screenoff="xset dpms force off"
 ## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 ## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
+## Git alias
+alias gl='git log --pretty=oneline --graph --decorate'
+alias gla='git log --pretty=oneline --graph --decorate --all'
+
 ## print the usege on the disk of fisrt agrument
 function usage()
 {
