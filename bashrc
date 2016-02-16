@@ -158,11 +158,11 @@ alias screenoff="xset dpms force off"
 alias gl='git log --pretty=oneline --graph --decorate'
 alias gla='git log --pretty=oneline --graph --decorate --all'
 
-export GIT_PS1_SHOWDIRTYSTATE=1
-export GIT_PS1_SHOWSTASHSTATE=1
-export GIT_PS1_SHOWUNTRACKEDFILES=1
-export GIT_PS1_SHOWUPSTREAM=verbose
-export GIT_PS1_DESCRIBE_STYLE=branch
+#export GIT_PS1_SHOWDIRTYSTATE=1
+#export GIT_PS1_SHOWSTASHSTATE=1
+#export GIT_PS1_SHOWUNTRACKEDFILES=1
+#export GIT_PS1_SHOWUPSTREAM=verbose
+#export GIT_PS1_DESCRIBE_STYLE=branch
 
 
 get_sha() {
