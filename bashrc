@@ -154,9 +154,22 @@ alias screenoff="xset dpms force off"
 ## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 ## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
 
-## Git alias
+## Git config
 alias gl='git log --pretty=oneline --graph --decorate'
 alias gla='git log --pretty=oneline --graph --decorate --all'
+
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM=verbose
+export GIT_PS1_DESCRIBE_STYLE=branch
+
+
+get_sha() {
+    git rev-parse --short HEAD 2>/dev/null
+}
+
+## End Git config
 
 ## print the usege on the disk of fisrt agrument
 function usage()
@@ -220,4 +233,5 @@ alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.
 unset SSH_ASKPASS
 export MANPAGER=most
 
-PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]$ \[\e[m\]'
+PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1 " ($(get_sha) %s)")\n\[\e[0;31m\]$ \[\e[m\]'
+
