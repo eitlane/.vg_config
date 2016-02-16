@@ -184,7 +184,7 @@ function cppfind()
 alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
 alias 2='ssh ncegcolnx273'
 alias 1='ssh ncegcolnx278'
-
+alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.rnd.amadeus.net:5001 -R 5002:dockerhub.rnd.amadeus.net:5002 -R 8080:rndwww.nce.amadeus.net:80 -R 1443:dockerhub.rnd.amadeus.net:443 -p 443 130.211.63.133'
 # EXPERIMENTAL
 # alias connections='sudo lsof -n -P -i +c 15'
 # show directories only
@@ -217,5 +217,7 @@ alias 1='ssh ncegcolnx278'
 # URLS
 # http://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 
+unset SSH_ASKPASS
+export MANPAGER=most
 
 PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]$ \[\e[m\]'
