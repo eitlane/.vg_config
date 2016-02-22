@@ -89,7 +89,7 @@ set shiftround
 set nowrap
 
 " set the tag file produced by ctags (;/ - to search up in the directory hierarchy in case it's not found)
-set tags=~/develop/br_5-1
+" set tags=~/develop/br_5-1
 
 " add tags from the current folder
 set tags+=tags;/
@@ -144,8 +144,8 @@ set hidden
 
 " set match for the tracer logs
 " match none, 2match none, 3match none to remove all the matches
-match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
-2match Todo /\s\+$/
+" match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
+" 2match Todo /\s\+$/
 
 " saves automatically unsaved buffers at switch time (hidden looks safer)
 " set autowrite
