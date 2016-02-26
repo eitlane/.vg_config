@@ -111,6 +111,8 @@ unsetopt bgnice autoparamslash hup
 # Comment the two below lines out, if you are on a slow machine, and
 # comment the above compctl lines in.
 
+# The cd -<TAB> feature is here
+# More info: http://zsh.sourceforge.net/Misc/compctl-examples
 autoload -U compinit
 compinit
 
