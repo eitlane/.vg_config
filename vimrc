@@ -89,7 +89,7 @@ set shiftround
 set nowrap
 
 " set the tag file produced by ctags (;/ - to search up in the directory hierarchy in case it's not found)
-set tags=~/develop/br_5-1
+" set tags=~/develop/br_5-1
 
 " add tags from the current folder
 set tags+=tags;/
@@ -144,8 +144,8 @@ set hidden
 
 " set match for the tracer logs
 " match none, 2match none, 3match none to remove all the matches
-match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
-2match Todo /\s\+$/
+" match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
+" 2match Todo /\s\+$/
 
 " saves automatically unsaved buffers at switch time (hidden looks safer)
 " set autowrite
@@ -160,27 +160,27 @@ match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
 " Ctrl+c+c exit history
 
 " Functional Keys Map
-nmap <F1> :tabprevious<CR>
-nmap <F2> :tabnext<CR>
-nmap <F3> :bp<CR>
-nmap <F4> :bn<CR>
-nmap <F6> :NERDTreeToggle<CR>
-nmap <F7> :TagbarToggle<CR>
-nmap <F8> :call ToggleHex()<CR>
-nmap <F9> :call ToggleWrap()<CR>
-nmap <F10> :call ToggleSpell()<CR>
+" nmap <F1> :tabprevious<CR>
+nnoremap <F2> :call MaximizeToggle()<CR>
+nnoremap <F3> :bp<CR>
+nnoremap <F4> :bn<CR>
+nnoremap <F6> :NERDTreeToggle<CR>
+nnoremap <F7> :TagbarToggle<CR>
+nnoremap <F8> :call ToggleHex()<CR>
+nnoremap <F9> :call ToggleWrap()<CR>
+nnoremap <F10> :call ToggleSpell()<CR>
 set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with indents)
 
 " Key Compinations Map
-nmap <C-h> :noh<CR>              " <CTRL -h> Invalidete the search
-nmap <C-n> :set invnumber<CR>    " <CTRL -n> remove numbers
-nmap <C-l> :set invlist<CR>      " <CTRL -l> $ at the end of the line
+nnoremap <C-h> :noh<CR>              " <CTRL -h> Invalidete the search
+nnoremap <C-n> :set invnumber<CR>    " <CTRL -n> remove numbers
+nnoremap <C-l> :set invlist<CR>      " <CTRL -l> $ at the end of the line
 
 " insert and commandline modes too.
-map  <C-A> <Home>
-map  <C-E> <End>
-map! <C-A> <Home>
-map! <C-E> <End>
+noremap  <C-A> <Home>
+noremap  <C-E> <End>
+noremap! <C-A> <Home>
+noremap! <C-E> <End>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle toHEX function
@@ -349,3 +349,84 @@ nmap <c-b> :CtrlPBuffer <CR>
 " iab teh the
 " iab marco macro
 " iab inerface interface
+"here is a more exotic version of my original Kwbd script
+"delete the buffer; keep windows; create a scratch buffer if no buffers left
+
+function s:Kwbd(kwbdStage)
+  if(a:kwbdStage == 1)
+    if(!buflisted(winbufnr(0)))
+      bd!
+      return
+    endif
+    let s:kwbdBufNum = bufnr("%")
+    let s:kwbdWinNum = winnr()
+    windo call s:Kwbd(2)
+    execute s:kwbdWinNum . 'wincmd w'
+    let s:buflistedLeft = 0
+    let s:bufFinalJump = 0
+    let l:nBufs = bufnr("$")
+    let l:i = 1
+    while(l:i <= l:nBufs)
+      if(l:i != s:kwbdBufNum)
+        if(buflisted(l:i))
+          let s:buflistedLeft = s:buflistedLeft + 1
+        else
+          if(bufexists(l:i) && !strlen(bufname(l:i)) && !s:bufFinalJump)
+            let s:bufFinalJump = l:i
+          endif
+        endif
+      endif
+      let l:i = l:i + 1
+    endwhile
+    if(!s:buflistedLeft)
+      if(s:bufFinalJump)
+        windo if(buflisted(winbufnr(0))) | execute "b! " . s:bufFinalJump | endif
+      else
+        enew
+        let l:newBuf = bufnr("%")
+        windo if(buflisted(winbufnr(0))) | execute "b! " . l:newBuf | endif
+      endif
+      execute s:kwbdWinNum . 'wincmd w'
+    endif
+    if(buflisted(s:kwbdBufNum) || s:kwbdBufNum == bufnr("%"))
+      execute "bd! " . s:kwbdBufNum
+    endif
+    if(!s:buflistedLeft)
+      set buflisted
+      set bufhidden=delete
+      set buftype=
+      setlocal noswapfile
+    endif
+  else
+    if(bufnr("%") == s:kwbdBufNum)
+      let prevbufvar = bufnr("#")
+      if(prevbufvar > 0 && buflisted(prevbufvar) && prevbufvar != s:kwbdBufNum)
+        b #
+      else
+        bn
+      endif
+    endif
+  endif
+endfunction
+
+command! Kwbd call s:Kwbd(1)
+nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+
+" Create a mapping (e.g. in your .vimrc) like this:
+
+function! MaximizeToggle()
+  if exists("s:maximize_session")
+    exec "source " . s:maximize_session
+    call delete(s:maximize_session)
+    unlet s:maximize_session
+    let &hidden=s:maximize_hidden_save
+    unlet s:maximize_hidden_save
+  else
+    let s:maximize_hidden_save = &hidden
+    let s:maximize_session = tempname()
+    set hidden
+    exec "mksession! " . s:maximize_session
+    only
+  endif
+endfunction
+
