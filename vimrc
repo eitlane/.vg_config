@@ -176,7 +176,9 @@ nnoremap <C-h> :noh<CR>              " <CTRL -h> Invalidete the search
 nnoremap <C-n> :set invnumber<CR>    " <CTRL -n> remove numbers
 nnoremap <C-l> :set invlist<CR>      " <CTRL -l> $ at the end of the line
 
-" insert and commandline modes too.
+command! Kwbd call s:Kwbd(1)
+nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
+
 noremap  <C-A> <Home>
 noremap  <C-E> <End>
 noremap! <C-A> <Home>
@@ -408,11 +410,6 @@ function s:Kwbd(kwbdStage)
     endif
   endif
 endfunction
-
-command! Kwbd call s:Kwbd(1)
-nnoremap <silent> <Plug>Kwbd :<C-u>Kwbd<CR>
-
-" Create a mapping (e.g. in your .vimrc) like this:
 
 function! MaximizeToggle()
   if exists("s:maximize_session")

@@ -189,12 +189,17 @@ function cppfind()
     #find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
 }
 
+# ctags $(find . -regex '.*\.\(cpp\|h\)')
+alias generateTags='ctags $(find . -regex ".*\.\(cpp\|h\)")'
+
+
 ## --- Alias End ---
 
 # AMADEUS SPECIFIC
 
 [[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
 alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
+alias mvg='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/remote/users/vgeorgiev /home/vgeorgiev/remote/'
 alias 2='ssh ncegcolnx273'
 alias 1='ssh ncegcolnx278'
 alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.rnd.amadeus.net:5001 -R 5002:dockerhub.rnd.amadeus.net:5002 -R 8080:rndwww.nce.amadeus.net:80 -R 1443:dockerhub.rnd.amadeus.net:443 -p 443 130.211.63.133'
