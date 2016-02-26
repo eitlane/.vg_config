@@ -145,7 +145,7 @@ set hidden
 " set match for the tracer logs
 " match none, 2match none, 3match none to remove all the matches
 " match ErrorMsg /\<\(ERROR\|WARN\|CRIT\|FATAL\)\>.*$\C/
-" 2match Todo /\s\+$/
+match Todo /\s\+$/
 
 " saves automatically unsaved buffers at switch time (hidden looks safer)
 " set autowrite
