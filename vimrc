@@ -236,6 +236,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle Maximize
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function! MaximizeToggle()
   if exists("s:maximize_session")
     exec "source " . s:maximize_session
@@ -255,6 +256,7 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Delete buffer without break the window layout
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function s:Kwbd(kwbdStage)
   if(a:kwbdStage == 1)
     if(!buflisted(winbufnr(0)))
