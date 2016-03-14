@@ -11,7 +11,7 @@ if version >= 700
   au InsertLeave * hi StatusLine ctermbg=black ctermfg=grey
 endif
 
-" hightlight the current line
+" hightlights the current line
 highlight clear CursorLine
 highlight CursorLine cterm=underline
 
@@ -67,7 +67,7 @@ set showtabline=2
 " history of typed entries
 set history=300
 
-" set soft tab mode (insert whitespaces instead of tab special character)
+" set soft tab mode (insert whitespace instead of tab special character)
 set expandtab
 
 " set tab indent (hard tab: ^I is displayed as <number> empty spaces, soft tab: number of white spaces to be inserted at each tab press)
@@ -96,6 +96,9 @@ set tags+=tags;/
 
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
 set timeoutlen=0
+
+" Auto delete empty spaces at the end (potentially dangerous)
+" autocmd BufWritePre * :%s/\s\+$//e
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
@@ -160,10 +163,11 @@ match Todo /\s\+$/
 " Ctrl+c+c exit history
 
 " Functional Keys Map
-" nmap <F1> :tabprevious<CR>
+" Don't remap F1 key
 nnoremap <F2> :call MaximizeToggle()<CR>
 nnoremap <F3> :bp<CR>
 nnoremap <F4> :bn<CR>
+nnoremap <F5> :%s/\s\+$//<CR>
 nnoremap <F6> :NERDTreeToggle<CR>
 nnoremap <F7> :TagbarToggle<CR>
 nnoremap <F8> :call ToggleHex()<CR>
@@ -171,9 +175,9 @@ nnoremap <F9> :call ToggleWrap()<CR>
 nnoremap <F10> :call ToggleSpell()<CR>
 set pastetoggle=<F12> " toggle paste option on/off (if on - pasting is made with indents)
 
-" Key Compinations Map
+" Key Combinations Map
 
-" <CTRL -h> Invalidete the search
+" <CTRL -h> Invalidate the search
 nnoremap <C-h> :noh<CR>
 " <CTRL -n> remove numbers
 nnoremap <C-n> :set invnumber<CR>
@@ -220,7 +224,7 @@ function! ToggleSpell()
 endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Toggle Wrap / UnWrap funciton
+" Toggle Wrap / Unwrap function
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 function ToggleWrap()
@@ -317,7 +321,7 @@ endfunction
 set linebreak "controls whether wrapped text is broken at word boundaries or not.
 
 " highligh command: hi[ghlight] <group> <options>
-" options: ctermbg - backgroud, ctermfg - foregrouond (text), cterm = [bold|italic|underline|reverse]
+" options: ctermbg - backgroud, ctermfg - foreground (text), cterm = [bold|italic|underline|reverse]
 " highlight TrcErrGrp ctermfg=red
 " highlight TrcInfoGrp ctermfg=cyan
 " highlight TrcNotGrp ctermfg=green
@@ -374,7 +378,7 @@ autocmd Filetype fvwm               call PoundComment()
 autocmd Filetype samba              call PoundComment()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plugin Configuration
+" Plug in Configuration
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Pathogen
@@ -387,7 +391,7 @@ let g:ctrlp_match_window = 'results:100'
 nmap <c-b> :CtrlPBuffer <CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Notes/Help/Useful shortcats
+" Notes/Help/Useful shortcuts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " :tabnew <> - open a file in a new tab
