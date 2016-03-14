@@ -119,6 +119,8 @@ alias ne='emacs -nw'
 alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
 alias ll='ls -la'
 
+alias gdb='gdb -silent'
+
 alias portst='netstat -lnpat'
 alias portsu='netstat -lnpau'
 

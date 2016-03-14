@@ -10,6 +10,7 @@ mkdir ~/.vimswap/undo
 mv ~/.vim       ~/.old_config/.vim
 mv ~/.bashrc    ~/.old_config/.bashrc
 mv ~/.vimrc     ~/.old_config/.vimrc
+mv ~/.gdbinit   ~/.old_config/.gdbinit
 mv ~/.screenrc  ~/.old_config/.screenrc
 mv ~/.tmux.conf ~/.old_config/.tmux.conf
 mv ~/.zshrc     ~/.old_config/.zshrc
@@ -17,6 +18,7 @@ mv ~/.zshrc     ~/.old_config/.zshrc
 ln -s  ~/.vg_config/bashrc ~/.bashrc
 ln -s  ~/.vg_config/vim    ~/.vim
 ln -s  ~/.vg_config/vimrc  ~/.vimrc
+ln -s  ~/.vg_config/gdbinit  ~/.gdbinit
 ln -s  ~/.vg_config/screenrc  ~/.screenrc
 ln -s  ~/.vg_config/tmux.conf ~/.tmux.conf
 ln -s  ~/.vg_config/zshrc ~/.zshrc
