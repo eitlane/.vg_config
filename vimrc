@@ -95,10 +95,17 @@ set nowrap
 set tags+=tags;/
 
 " don't timeout when mapping or key codes are typed (don't wait when ESC is typed)
-set timeoutlen=0
+" set timeoutlen=0
 
 " Auto delete empty spaces at the end (potentially dangerous)
 " autocmd BufWritePre * :%s/\s\+$//e
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" <Leader> key settings and implementation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let mapleader=";"
+noremap <Leader>w :w <Enter>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Files/Backups
@@ -441,4 +448,37 @@ nmap <c-b> :CtrlPBuffer <CR>
 " iab inerface interface
 "here is a more exotic version of my original Kwbd script
 "delete the buffer; keep windows; create a scratch buffer if no buffers left
+
+source  ~/.vim/syntax/amadeuslogs.vim
+
+" Unused (yet) functions Unused (yet) functions
+
+function! DefaultBlackbg()
+    colorscheme default
+    unlet g:colors_name
+    set background=dark
+    syntax reset
+    highlight Normal ctermbg=Black ctermfg=White guibg=Black guifg=White
+    let g:colors_name = "default"
+endfunction
+
+function! InsertTabWrapper(direction)
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+        return "\<tab>"
+    elseif "backward" == a:direction
+        return "\<c-p>"
+    else
+        return "\<c-n>"
+    endif
+endfunction
+
+function! CleanCode()
+    " replace tabs with spaces
+    %s/\t/    /g
+    " add a space after comas, if necessary
+    %s/,\([^ ]\)/, \1/g
+    " remove trailing spaces
+    %s/ \+$//g
+endfunction
 
