@@ -12,3 +12,12 @@ Mem	fieldscur=ANOPQRSTUVbcdefgjlmyzWHIK{|X
 Usr	fieldscur=ABDECGfhijlopqrstuvyzMKNW{|X
 	winflags=64825, sortindx=4, maxtasks=0
 	summclr=3, msgsclr=3, headclr=2, taskclr=2
+
+# c - to see the full path
+# x - to highlight the sorted column
+# < > - to move the sorting column left and right
+# R - reverse sort
+# 1 - show all CPUs
+# Z - for syntax highlight
+# and yes
+# and to save the config shift+w
