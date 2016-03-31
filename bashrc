@@ -36,32 +36,8 @@ PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
+PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1 " ($(get_sha) %s)")\n\[\e[0;31m\]$ \[\e[m\]'
 
-# uncomment for a colored prompt, if the terminal has the capability; turned
-# off by default to not distract the user: the focus in a terminal window
-# should be on the output of commands, not on the prompt
-#force_color_prompt=yes
-
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
-
-if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='\[\e[0;31m\][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1)\n\[\e[0;31m\]$ \[\e[m\]'
-fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -200,13 +176,14 @@ alias generateTags='ctags $(find . -regex ".*\.\(cpp\|h\)")'
 ## --- Alias End ---
 
 # AMADEUS SPECIFIC
-
-[[ -s "/home/vgeorgiev/.gvm/scripts/gvm" ]] && source "/home/vgeorgiev/.gvm/scripts/gvm"
 alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
 alias mvg='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/remote/users/vgeorgiev /home/vgeorgiev/remote/'
+
+# Too lazy to support .sshrc file
+
 alias 2='ssh ncegcolnx273'
 alias 1='ssh ncegcolnx278'
-alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.rnd.amadeus.net:5001 -R 5002:dockerhub.rnd.amadeus.net:5002 -R 8080:rndwww.nce.amadeus.net:80 -R 1443:dockerhub.rnd.amadeus.net:443 -p 443 130.211.63.133'
+#alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.rnd.amadeus.net:5001 -R 5002:dockerhub.rnd.amadeus.net:5002 -R 8080:rndwww.nce.amadeus.net:80 -R 1443:dockerhub.rnd.amadeus.net:443 -p 443 130.211.63.133'
 # EXPERIMENTAL
 # alias connections='sudo lsof -n -P -i +c 15'
 # show directories only
@@ -242,5 +219,4 @@ alias gcvgeorgiev='ssh -R 5000:dockerhub.rnd.amadeus.net:5000 -R 5001:dockerhub.
 unset SSH_ASKPASS
 export MANPAGER=most
 
-PS1='\[\e[0;31m\][\e[0;34m$?\e[0;31m][\e[0;34m\t\e[0;31m]{\[\e[1;30m\]\u\[\e[0;37m\]@\[\e[1;34m\]\h\[\e[0;31m\]}\[\e[0;31m\](\[\e[1;31m\]\w\[\e[0;31m\])\[\e[0;33m\]$(__git_ps1 " ($(get_sha) %s)")\n\[\e[0;31m\]$ \[\e[m\]'
 
