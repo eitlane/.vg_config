@@ -107,10 +107,11 @@ fi
 # curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
 
 # The ecnrypted extention :)
-# export GIT_PS1_SHOWDIRTYSTATE=true
-# export GIT_PS1_SHOWSTASHSTATE=true
-# export GIT_PS1_SHOWUNTRACKEDFILES=true
-# export GIT_PS1_SHOWUPSTREAM="verbose
+export GIT_PS1_SHOWDIRTYSTATE=true
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUNTRACKEDFILES=true
+export GIT_PS1_SHOWUPSTREAM=verbose
+export GIT_PS1_DESCRIBE_STYLE=branch
 
 if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
@@ -166,12 +167,6 @@ alias screenoff="xset dpms force off"
 ## Git config
 alias gl='git log --pretty=oneline --graph --decorate'
 alias gla='git log --pretty=oneline --graph --decorate --all'
-
-#export GIT_PS1_SHOWDIRTYSTATE=1
-#export GIT_PS1_SHOWSTASHSTATE=1
-#export GIT_PS1_SHOWUNTRACKEDFILES=1
-#export GIT_PS1_SHOWUPSTREAM=verbose
-#export GIT_PS1_DESCRIBE_STYLE=branch
 
 
 get_sha() {
