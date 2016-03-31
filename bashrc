@@ -103,10 +103,17 @@ if ! shopt -oq posix; then
 fi
 
 # Source __git_ps1 envornmet variable
-# curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.bash_git
 
-if [ -f ~/.bash_git ]; then
-    . ~/.bash_git
+# curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
+
+# The ecnrypted extention :)
+# export GIT_PS1_SHOWDIRTYSTATE=true
+# export GIT_PS1_SHOWSTASHSTATE=true
+# export GIT_PS1_SHOWUNTRACKEDFILES=true
+# export GIT_PS1_SHOWUPSTREAM="verbose
+
+if [ -f ~/.git-prompt.sh ]; then
+    . ~/.git-prompt.sh
 fi
 
 ## --- Alias Start ---
