@@ -23,7 +23,12 @@ ln -s  ~/.vg_config/screenrc  ~/.screenrc
 ln -s  ~/.vg_config/tmux.conf ~/.tmux.conf
 ln -s  ~/.vg_config/zshrc ~/.zshrc
 
+curl -L https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh > ~/.git-prompt.sh
+
+source ~/.git-prompt.sh
+
 echo "Done!"
+
 
 echo "Getting plugins from git"
 
