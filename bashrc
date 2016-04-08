@@ -93,63 +93,21 @@ if [ -f ~/.git-prompt.sh ]; then
     . ~/.git-prompt.sh
 fi
 
-## --- Alias Start ---
-
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias ne='emacs -nw'
-alias psmy='ps -fu $USER | sort | egrep -v "ps -fu|sort|grep"'
-alias ll='ls -la'
-
-alias gdb='gdb -silent'
-
-alias portst='netstat -lnpat'
-alias portsu='netstat -lnpau'
-
-alias iptlist='sudo /sbin/iptables -L -n -v --line-numbers'
-alias iptlistin='sudo /sbin/iptables -L INPUT -n -v --line-numbers'
-alias iptlistout='sudo /sbin/iptables -L OUTPUT -n -v --line-numbers'
-alias iptlistfw='sudo /sbin/iptables -L FORWARD -n -v --line-numbers'
-
-alias wget='wget -c'
-
-## pass options to free ##
-alias meminfo='free -m -l -t'
-
-## get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-
-## get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3'
-alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
-
-## Get server cpu info ##
-alias cpuinfo='lscpu'
-
-## copy with progress
-alias cpProgress="rsync --progress -ravz"
-alias viewmount="mount |column -t"
-
-## turn screen off
-alias screenoff="xset dpms force off"
-
-## Tree no tree
-## alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-## alias dirtree="ls -R | grep :*/ | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
-
-## Git config
-alias gl='git log --pretty=oneline --graph --decorate'
-alias gla='git log --pretty=oneline --graph --decorate --all'
-
 
 get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
 ## End Git config
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 ## print the usege on the disk of fisrt agrument
 function usage()
@@ -159,21 +117,13 @@ function usage()
 
 function hfind()
 {
-    ack --type=h "$@"
-    #find . -name \*.h |xargs -n1 grep -H --color=auto -n "$@"
+    find . -name \*.h |xargs -n1 grep -H --color=auto -n "$@"
 }
 
 function cppfind()
 {
-    ack --type=cpp "$@"
-    #find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
+    find . -name \*.cpp |xargs -n1 grep -H --color=auto -n "$@"
 }
-
-# ctags $(find . -regex '.*\.\(cpp\|h\)')
-alias generateTags='ctags $(find . -regex ".*\.\(cpp\|h\)")'
-
-
-## --- Alias End ---
 
 # AMADEUS SPECIFIC
 alias m273='sshfs -o transform_symlinks vgeorgiev@ncegcolnx273:/ ~/273/'
@@ -218,5 +168,4 @@ alias 1='ssh ncegcolnx278'
 
 unset SSH_ASKPASS
 export MANPAGER=most
-
 
