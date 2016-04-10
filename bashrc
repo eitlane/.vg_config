@@ -169,3 +169,6 @@ alias 1='ssh ncegcolnx278'
 unset SSH_ASKPASS
 export MANPAGER=most
 
+export PATH=/usr/java/jdk1.8.0_77/bin:$PATH
+export JAVA_HOME=/usr/java/jdk1.8.0_77/bin/java
+
