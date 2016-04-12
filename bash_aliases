@@ -1,3 +1,4 @@
+#!/bin/bash
 ## --- Alias Start ---
 
 alias ll='ls -alF'
@@ -51,5 +52,7 @@ alias gla='git log --pretty=oneline --graph --decorate --all'
 
 # ctags $(find . -regex '.*\.\(cpp\|h\)')
 alias generateTags='ctags $(find . -regex ".*\.\(cpp\|h\)")'
+
+alias STS='/bin/STS &>/dev/null &'
 
 ## --- Alias End ---
